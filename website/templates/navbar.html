@@ -1,0 +1,30 @@
+<nav class="navbar">
+    <div class = "navbar__container">
+        <a href="/" id = "navbar__logo">
+            <i class="fa-solid fa-house"></i>
+            FANTASY DATA
+        </a>
+        <div class="navbar__toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+            <li class="navbar__item">
+                <a href="{{ url_for('views.adp') }}" class="navbar__links">ADP</a>
+            </li>
+            <li class="navbar__item">
+                <a href="/expert-rankings.html" class="navbar__links">Expert Rankings</a>
+            </li>
+            <li class="navbar__item">
+                <a href="/league-data.html" class="navbar__links">League Data</a>
+            </li>
+            <li class="navbar__item">
+                <a href="/" class="navbar__links">Contact Us</a>
+            </li>
+            <li class="navbar__btn">
+                <a href="/" class="button">Account</a>
+            </li>
+        </ul>
+    </div>
+</nav>
