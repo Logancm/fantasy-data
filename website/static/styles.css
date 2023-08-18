@@ -7,6 +7,10 @@
     font-family: 'Kumbh sans', sans-serif;
 }
 
+html, body {
+    overflow-x: hidden;
+  }
+
 
 .social-footer {
     padding: 1rem;
@@ -140,7 +144,7 @@
     .navbar__container{
         display: flex;
         justify-content: space-between;
-        height: 80px;
+        height: 80px !important;
         z-index: 1;
         width: 100%;
         max-width: 1300px;
@@ -172,6 +176,7 @@
 
     #navbar__logo{
         padding-left: 25px;
+        font-size: 1.4rem !important;
     }
 
     .navbar__toggle .bar{
@@ -229,6 +234,23 @@
     #mobile-menu.is-active .bar:nth-child(3){
         transform: translateY(-8px) rotate(-45deg);
     }
+
+    .main__container {
+        padding: 5px !important; /* Adjust padding for smaller screens */
+      }
+    
+      .main__content h1 {
+        font-size: 8vw !important; /* Adjust font size for smaller screens */
+      }
+    
+      .main__content h2 {
+        font-size: 8vw !important; /* Adjust font size for smaller screens */
+      }
+    
+      /* Adjust table styles for smaller screens */
+      .table {
+        font-size: 10px !important;
+      }
 }
 
 .main{
@@ -266,7 +288,7 @@
   }
 
 .main__content h1{
-    font-size: 4rem !important;
+    font-size: 4rem;
     background-color:var( --background-color);
     background-image: linear-gradient(to top, #CBE4DE -50%, var(--secondary-color) 50%, #2E4F4F 150%);;
     background-size: 100%;
