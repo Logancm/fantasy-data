@@ -54,8 +54,6 @@ def scrape_players_data():
          }
    
    sorted_players = sorted(players.values(), key=lambda x: x['Sleeper ADP'])
-   
-   print(sorted_players)
 
 
    return sorted_players

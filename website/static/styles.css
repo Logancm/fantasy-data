@@ -160,7 +160,6 @@ html, body {
         top: -1000px;
         opacity: 0;
         transition: all 0.5s ease;
-        height: 50vh;
         z-index: -1;
     }
 
@@ -170,8 +169,10 @@ html, body {
         opacity: 1;
         transition: all 0.5s ease;
         z-index: 99;
-        height: 50vh;
+        height: 70vh;
         font-size: 1.6rem;
+        padding-bottom: 1em;
+        margin-left: -1rem;
       }
 
     #navbar__logo{
@@ -276,6 +277,14 @@ html, body {
 
 .main.adp-page .main__container {
     min-height: 30vh; /* Adjust this value as needed */
+    text-align: center; /* Center the content vertically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main.stats-page .main__container {
+    min-height: 90vh; /* Adjust this value as needed */
     text-align: center; /* Center the content vertically */
     display: flex;
     flex-direction: column;
@@ -387,14 +396,4 @@ html, body {
         padding: 12px 36px;
         margin: 2.5rem 0;
     }
-}
-
-.adp-header{
-    font-size: 2rem;
-    color: var(--secondary-color);
-    text-align: justify;
-}
-
-.adp-rows{
-    color: var(--data-color);
 }
