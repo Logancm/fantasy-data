@@ -37,3 +37,22 @@
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
   crossorigin="anonymous"
 ></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+
+<script>
+  // Initialize Sortable
+  const sortable = new Sortable(document.getElementById("sortable-body"), {
+    animation: 150, // Optional: Set animation duration (in milliseconds)
+    onUpdate: function (evt) {
+      const rows = evt.from.children;
+      for (let i = 0; i < rows.length; i++) {
+        const rankCell = rows[i].querySelector("td:first-child");
+        rankCell.textContent = i + 1;
+      }
+      // This function is called when the order changes
+      // You can send an AJAX request to update the order on the server if needed
+      console.log("Order updated:", evt.newIndex, evt.oldIndex);
+    },
+  });
+</script>

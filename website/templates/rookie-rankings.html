@@ -1,0 +1,44 @@
+{% include 'navbar.html' %}
+
+<div class="main adp-page">
+  <div class="main__container">
+    <div class="main__content">
+      <h1>2024</h1>
+      <h2>ROOKIE RANKINGS</h2>
+    </div>
+  </div>
+</div>
+
+<!-- Hero section -->
+<div class="main">
+  <div class="main__container">
+    <table id="rookieTable" class="table table-dark">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Player</th>
+          <th>Position</th>
+          <th>Age</th>
+          <th>School</th>
+        </tr>
+      </thead>
+      <tbody id="sortable-body">
+        {% for rookie in rookies %}
+        <tr
+          class="sortable-row"
+          data-id="{{ rookie.id }}"
+          data-rank="{{ loop.index }}"
+        >
+          <td>{{ loop.index }}</td>
+          <td>{{ rookie['Player'] }}</td>
+          <td>{{ rookie['Position'] }}</td>
+          <td>{{ rookie['Final Age'] }}</td>
+          <td>{{ rookie['School'] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% include 'footer.html' %}

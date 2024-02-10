@@ -397,3 +397,75 @@ html, body {
         margin: 2.5rem 0;
     }
 }
+ /* Custom CSS for dark-themed pagination */
+ .pagination-dark .page-link {
+    color: #fff;
+    background-color: #343a40; /* Dark background color */
+    border-color: #495057; /* Dark border color */
+  }
+  
+  .pagination-dark .page-item.disabled .page-link,
+  .pagination-dark .page-item.disabled .page-link:focus {
+    color: #6c757d; /* Disabled button color */
+    background-color: #343a40; /* Dark background color */
+    border-color: #495057; /* Dark border color */
+  }
+  
+  .pagination-dark .page-link:hover {
+    color: #ffffff; /* Subtle gray color */
+    background-color: #495057; /* Slightly lighter background color */
+    border-color: #343a40; /* Dark border color */
+  }
+
+  .pagination-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 0px;
+  }
+
+  .paginator-row-menu{
+    color: #fff !important;
+    background-color: #343a40 !important; /* Dark background color */
+    border-color: #495057 !important;
+  }
+
+  @media screen and (max-width:680px){
+    .paginator-row-menu{
+        height: 32px !important;
+    }
+
+  }
+
+
+
+  .rookie-table th,
+  .rookie-table td {
+      color: white;
+  }
+  
+  /* Add styles for the rookie table */
+  .rookie-table {
+      width: 100%;
+      border-collapse: collapse;
+  }
+  
+  .rookie-table th,
+  .rookie-table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+  }
+  
+  .rookie-table th {
+      background-color: #333;
+  }
+
+  .sortable-row {
+    cursor: grab;
+}
+
+.sortable-row:active {
+    cursor: grabbing;
+}
+
+
