@@ -32,7 +32,6 @@ def adp():
 
 @views.route('/rookie-rankings.html')
 def rookieRankings():
-    # Fetch rookie data (update with your actual function)
     rookies = fetch_rookie_data()
     return render_template("rookie-rankings.html", rookies=rookies)
 
@@ -40,10 +39,7 @@ def rookieRankings():
 def league_data():
     return render_template("league-data.html")
 
-@views.route('/stats.html')
-def stats():
-    return render_template("stats.html")
+@views.route('/bankroll-tracker.html')
+def bankroll_tracker():
+    return render_template("bankroll-tracker.html")
 
-@views.route('/account.html')
-def account():
-    return render_template("account.html")

@@ -1,0 +1,107 @@
+{% include 'navbar.html' %}
+
+<div class="main">
+  <div class="main__container bankroll_container">
+    <div class="title__content">
+      <h1>BANKROLL</h1>
+      <h2>TRACKER</h2>
+      <h2>(Work in progress)</h2>
+    </div>
+
+    <div class="bankrollForm__container">
+      <form id="bankrollForm">
+        <label for="date" class="bankroll_label">Date:</label>
+        <input type="date" id="date" required class="form-control" />
+        <label for="amount" class="bankroll_label">Amount Won:</label>
+        <input type="number" id="amount" required class="form-control" />
+      </form>
+      <button type="button" onclick="addData()" class="btn btn-primary btn-lg">
+        Add Data
+      </button>
+      <canvas id="lineChart"></canvas>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var ctx = document.getElementById("lineChart").getContext("2d");
+    var lineChart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: [], // Dates will go here
+        datasets: [
+          {
+            label: "Bankroll Over Time",
+            borderColor: "rgb(75, 192, 192)",
+            data: [], // Amounts won will go here
+            fill: false,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        scales: {
+          x: {
+            type: "time",
+            time: {
+              unit: "day",
+            },
+            title: {
+              display: true,
+              text: "Date",
+            },
+          },
+          y: {
+            title: {
+              display: true,
+              text: "Amount Won",
+            },
+            min: 0,
+          },
+        },
+      },
+    });
+
+    // Function to add data to the chart
+    window.addData = function () {
+      var dateInput = document.getElementById("date").value;
+      var amountInput = document.getElementById("amount").value;
+
+      if (dateInput && amountInput) {
+        // Parse date and convert amount to a number
+        var [year, month, day] = dateInput.split("-").map(Number);
+        var date = new Date(year, month - 1, day);
+        var amount = parseFloat(amountInput);
+
+        // If there are existing data points
+        if (lineChart.data.labels.length > 0) {
+          // Calculate the cumulative amount
+          amount +=
+            lineChart.data.datasets[0].data[
+              lineChart.data.datasets[0].data.length - 1
+            ];
+        }
+        // Add data to the chart
+        lineChart.data.labels.push(date);
+        lineChart.data.datasets[0].data.push(amount);
+
+        // Update the chart
+        console.log(lineChart.data);
+
+        lineChart.update();
+
+        // Clear the form inputs
+        document.getElementById("date").value = "";
+        document.getElementById("amount").value = "";
+      }
+    };
+
+  });
+</script>
+
+{% include 'footer.html' %}

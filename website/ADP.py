@@ -25,15 +25,17 @@ def scrape_players_data():
 
       if isinstance(tr, Tag):  # Check if the object is a Tag
             name = tr.contents[2].a.string
-            player_info = tr.contents[2].find_all('small')  # Find all <small> tags within the second <td> tag
-            if len(player_info) >= 2:  # Check if there are at least two <small> tags
-               team = player_info[0].get_text(strip=True)
-               byeWeek = player_info[1].get_text(strip=True)
-            else:
-               team = ""
-               bye_week = ""
+            team_tag = tr.find(class_='player-label').find('small')
+            team = team_tag.get_text(strip=True) if team_tag else ""
+            # player_info = tr.contents[2].find_all('small')  # Find all <small> tags within the second <td> tag
+            # if len(player_info) >= 2:  # Check if there are at least two <small> tags
+            #    team = player_info[0].get_text(strip=True)
+            #    # byeWeek = player_info[1].get_text(strip=True)
+            # else:
+            #    team = ""
+               # bye_week = ""
             positionRank = tr.contents[4].get_text(strip=True)
-            sleeperADP_text = tr.contents[7].get_text(strip=True)
+            sleeperADP_text = tr.contents[5].get_text(strip=True)
             if sleeperADP_text:
                sleeperADP = float(sleeperADP_text)
             else:
@@ -48,7 +50,7 @@ def scrape_players_data():
             players[name] = {
                'Name': name,
                'Team': team,
-               'Bye Week': byeWeek,
+               # 'Bye Week': byeWeek,
                'Position Rank': positionRank,
                'Sleeper ADP': sleeperADP
          }

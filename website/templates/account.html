@@ -9,18 +9,18 @@
                     <button type="button" class="toggle-btn" onclick="login()">Log in</button>
                     <button type="button" class="toggle-btn" onclick="register()">Register</button>
                 </div>
-                <form id="login" class="input-group">
-                    <input type="text" class="input-field" placeholder="Username" required>
-                    <input type="text" class="input-field" placeholder="Enter Password" required>
+                <form id="login" class="input-group" method="POST">
+                    <input type="text" id="username" name="username" class="input-field" placeholder="Username" required>
+                    <input type="text" id="password" name="password" class="input-field" placeholder="Enter Password" required>
                     <input type="checkbox" class="chech-box"><span>Remember Password</span></input>
                     <button type="submit" class="submit-btn">Log In</button>
                 </form>
-                <form id="register"class="input-group">
-                    <input type="text" class="input-field" placeholder="Username" required>
-                    <input type="email" class="input-field" placeholder="Email" required>
-                    <input type="text" class="input-field" placeholder="Enter Password" required>
+                <form id="register"class="input-group" method="POST">
+                    <input type="text" id="username" name="username" class="input-field" placeholder="Username" required>
+                    <input type="email" id="email" name="email" class="input-field" placeholder="Email" required>
+                    <input type="text" id="password" name="password" class="input-field" placeholder="Enter Password" required>
                     <input type="checkbox" class="chech-box"><span>I agree to the terms and conditions</span></input>
-                    <button type="submit" class="submit-btn">Log In</button>
+                    <button type="submit" class="submit-btn">Create Account</button>
                 </form>
             </div>
         </div>
